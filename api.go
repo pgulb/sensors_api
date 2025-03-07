@@ -99,7 +99,7 @@ func LastData(id string) (Measurement, error) {
 }
 
 func Data(skip int) ([]Measurement, error) {
-	q := fmt.Sprintf("SELECT id, temperature, humidity, voltage, timestamp FROM `sensors`.`sensors`.`sensors` ORDER BY timestamp DESC LIMIT 10000 OFFSET %v", skip)
+	q := fmt.Sprintf("SELECT id, temperature, humidity, voltage, timestamp FROM `sensors`.`sensors`.`sensors` ORDER BY timestamp DESC LIMIT 2000 OFFSET %v", skip)
 	log.Println(q)
 	res, err := cluster.Query(q, nil)
 	if err != nil {
